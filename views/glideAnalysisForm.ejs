@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<body>
+<%- include('partials/_header.ejs') %>
+<main role="main" class="container mt-4">
+    <h2>Glide Analysis Form</h2>
+    <form action="/glide-analysis" method="POST">
+        <div class="mb-3">
+            <label for="bestGlideRatio" class="form-label">Best Glide Ratio</label>
+            <input type="number" step="any" class="form-control" id="bestGlideRatio" name="best_glide_ratio" required>
+        </div>
+        <div class="mb-3">
+            <label for="dragPolar" class="form-label">Drag Polar Coefficients</label>
+            <input type="number" step="any" class="form-control" id="dragPolar" name="drag_polar" required>
+        </div>
+        <div class="mb-3">
+            <label for="weight" class="form-label">Weight of the Aircraft</label>
+            <input type="number" step="any" class="form-control" id="weight" name="weight" required>
+        </div>
+        <div class="mb-3">
+            <label for="V_NE" class="form-label">Never Exceed Speed (V_NE)</label>
+            <input type="number" step="any" class="form-control" id="V_NE" name="V_NE" required>
+        </div>
+        <div class="mb-3">
+            <label for="V_H" class="form-label">Maximum Level Flight Speed (V_H)</label>
+            <input type="number" step="any" class="form-control" id="V_H" name="V_H" required>
+        </div>
+        <div class="mb-3">
+            <label for="V_G" class="form-label">Best Glide Speed (V_G)</label>
+            <input type="number" step="any" class="form-control" id="V_G" name="V_G" required>
+        </div>
+        <div class="mb-3">
+            <label for="V_S0" class="form-label">Clean Stall Speed (V_S0)</label>
+            <input type="number" step="any" class="form-control" id="V_S0" name="V_S0" required>
+        </div>
+        <div class="mb-3">
+            <label for="V_S1" class="form-label">Stall Speed in Landing Configuration (V_S1)</label>
+            <input type="number" step="any" class="form-control" id="V_S1" name="V_S1" required>
+        </div>
+        <div class="mb-3">
+            <label for="V_FE" class="form-label">Maximum Flap Extension Speed (V_FE)</label>
+            <input type="number" step="any" class="form-control" id="V_FE" name="V_FE" required>
+        </div>
+        <div class="mb-3">
+            <label for="V_APP" class="form-label">Approach Speed (V_APP)</label>
+            <input type="number" step="any" class="form-control" id="V_APP" name="V_APP" required>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</main>
+<%- include('partials/_footer.ejs') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

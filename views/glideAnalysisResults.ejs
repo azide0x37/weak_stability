@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<body>
+<%- include('partials/_header.ejs') %>
+<main role="main" class="container mt-5">
+    <h2>Glide Analysis Results</h2>
+    <div id="results"></div>
+    <a href="/glide-analysis" class="btn btn-primary mt-3">Back to Analysis Form</a>
+</main>
+<%- include('partials/_footer.ejs') %>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const analysisResults = <%- JSON.stringify(analysisResults) %>;
+        
+        analysisResults.forEach((result, index) => {
+            const plotDiv = document.createElement('div');
+            plotDiv.id = `plot${index}`;
+            document.getElementById('results').appendChild(plotDiv);
+            
+            Plotly.newPlot(`plot${index}`, result.plotData.data, result.plotData.layout).then(null, function(error) {
+                console.error("Error generating plot for speed " + result.speed + ": ", error.message, error.stack);
+            });
+        });
+    });
+</script>
+</body>
+</html>
